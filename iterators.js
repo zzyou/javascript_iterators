@@ -50,7 +50,7 @@ function getDurations(arr) {
 
 
 
-/* Write a function called getDurationInSeconds
+/* Write a function called getDurationsInSeconds
 which takes in an array of songs
 and returns an array of each song's duration in seconds. */
 
@@ -71,18 +71,33 @@ If there's only one artist, that artist should be returned;
 if there are featured artists, they should be ignored
 (so only the artist to the left of "featuring" is kept.) */
 
+function getMainArtists(arr) {
+  return arr.map(obj => {
+    if (obj.artist.includes('featuring')) {
+      return obj.artist.split(/\sfeaturing\s/)[0];
+    } else {
+      return obj.artist;
+    }
+  });
+}
 
 
 
 /* Write a function called getBigHits which takes an array of songs
 and returns an array of songs which were number one for 10 or more weeks. */
 
+function getBigHits(arr) {
+  return arr.filter(obj => obj.weeksAtNumberOne >= 10);
+}
 
 
 
 /* Write a function called getShortSongs which takes an array of songs
 and returns an array of songs which shorter than 3 minutes. */
 
+function getShortSongs(arr) {
+  return arr.filter(obj => +obj.duration[0] < 3);
+}
 
 
 
@@ -90,6 +105,9 @@ and returns an array of songs which shorter than 3 minutes. */
 which takes in an array of artists and the name of an artist
 and returns an array of songs by that artist. */
 
+function getSongsByArtist(arr, name) {
+  return arr.filter(obj => obj.artist.includes(name));
+}
 
 
 
