@@ -83,14 +83,15 @@ describe("#summerJamCount", function(){
 });
 
 describe("#getTotalDurationInSeconds", function(){
-  xit("needs you to write some tests!", function(){
-    // WRITE YOUR OWN TESTS!
+  it("should return a number", function(){
+    expect(getTotalDurationInSeconds(songs)).not.to.equal(NaN);
   });
 });
 
 describe("#getSongCountByArtist", function(){
-  xit("needs you to write some tests!", function(){
-    // WRITE YOUR OWN TESTS!
+  it("should return correct number of songs by artist", function(){
+    expect(getSongCountByArtist(songs).Adele).to.equal(4);
+    expect(getSongCountByArtist(songs).OMI).to.equal(1);
   });
 });
 

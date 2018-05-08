@@ -113,7 +113,14 @@ function getSongsByArtist(arr, name) {
 
 /* Refactor summerJamCount to use reduce! */
 
-
+function summerJamCount(arr) {
+  return arr.reduce((acc, obj) => {
+    if (obj.month === 6 || obj.month === 7 || obj.month === 8) {
+      acc ++;
+    }
+    return acc;
+  }, 0);
+}
 
 
 /* Write a function called getTotalDurationInSeconds
@@ -122,6 +129,12 @@ and returns the total amount of time (in seconds)
 it would take to listen to all of the songs.
 (Hint: can you use anything you've written already to help solve this problem?) */
 
+function getTotalDurationInSeconds(arr) {
+  const arrSec = getDurationsInSeconds(arr);
+  return arrSec.reduce((acc, sec) => {
+    return acc + sec;
+  }, 0);
+}
 
 
 
@@ -130,9 +143,22 @@ which takes in an array of songs and returns an object.
 The keys in the object should be artist names,
 and the values should be the number of songs by that artist in the orignal array. */
 
+function getSongCountByArtist(arr) {
+  return arr.reduce((acc, obj) => {
+    acc[obj.artist] = acc[obj.artist] + 1 || 1;
+    return acc;
+  }, {});
+}
 
 
 
 /* Write a function called averageWeeksAtNumberOne
 which takes in an array of songs
 and returns the average number of weeks that songs on the list were #1. */
+
+function averageWeeksAtNumberOne(arr) {
+  return arr.reduce((acc, obj) => {
+    acc += obj.weeksAtNumberOne;
+    return acc / (arr.length);
+  }, 0)
+}
