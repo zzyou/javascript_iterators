@@ -74,8 +74,11 @@ describe("#getSongsByArtist", function(){
 // change xit to it so that your tests are no longer pending!
 
 describe("#summerJamCount", function(){
-  xit("needs you to write some tests!", function(){
-    // WRITE YOUR OWN TESTS!
+  it("should return a number", function(){
+    expect(summerJamCount(songs)).not.to.equal(NaN);
+  });
+  it("should return 0 if argument is an empty array", function() {
+    expect(summerJamCount([])).to.equal(0);
   });
 });
 
